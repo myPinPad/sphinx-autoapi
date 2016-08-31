@@ -91,6 +91,7 @@ class DotNetSphinxMapper(SphinxMapperBase):
                              for key in ['PATH', 'HOME', 'SYSTEMROOT',
                                          'USERPROFILE', 'WINDIR']
                              if key in os.environ),
+                    cwd=os.path.dirname(next(iter(all_files)))
                 )
                 _, error_output = proc.communicate()
                 if error_output:
